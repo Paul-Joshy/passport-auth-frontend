@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 import App from './components/App';
 import Home from './components/Home';
 import SignUp from './components/Signup';
@@ -19,4 +19,4 @@ ReactDOM.render(
     </App>
   </BrowserRouter>, 
   document.querySelector('#root'));
-registerServiceWorker();
+// registerServiceWorker();
