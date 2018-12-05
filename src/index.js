@@ -5,8 +5,8 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 import App from './components/App';
 import Home from './components/Home';
-import SignUp from './components/SignUp';
-import SignIn from './components/SignIn';
+import SignUp from './components/Signup';
+import SignIn from './components/Signin';
 import Dashboard from './components/Dashboard';
 
 ReactDOM.render(
