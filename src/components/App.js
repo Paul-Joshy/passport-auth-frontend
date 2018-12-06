@@ -1,12 +1,14 @@
 import React from 'react';
+
 import Header from './Header';
 
-export default(props) => {
+export default (props) => {
   return (
     <div>
-      <Header/>
-      Is this working
+      <Header />
+      <div className="container">
       { props.children }
+      </div>
     </div>
-  )
-}
+  );
+};
