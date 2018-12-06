@@ -14,6 +14,7 @@ class Dashboard extends Component {
     this.responseFacebook = this.responseFacebook.bind(this);
     this.unlinkFacebook = this.unlinkFacebook.bind(this);
     this.unlinkGoogle = this.unlinkGoogle.bind(this);
+    this.deleteAccount = this.deleteAccount.bind(this);
   }
 
   async unlinkGoogle() {
@@ -26,6 +27,12 @@ class Dashboard extends Component {
     const res = await axios.get('http://localhost:5000/user/facebook/unlink');
     if(res)
       this.props.getUserDetails()    
+  }
+
+  async  deleteAccount() {
+    const res = await axios.get('http://localhost:5000/user/delete')
+    if(res)
+      this.props.signOut();
   }
 
   async componentDidMount() {
@@ -84,15 +91,21 @@ class Dashboard extends Component {
 
   render() {
     console.log('userDetails =', this.props.userDetails)
+    const getemail = () => {
+      return this.props.userDetails.local.email ||
+      this.props.userDetails.facebook.email ||
+      this.props.userDetails.google.email ||
+      ''
+    }
     // if(userDetails && userDetails.data)
     return (
       <div>
-        This is a Dashboard component
         <br/>
-        <h3>Your email is {this.props.userDetails.local.email}</h3>
+        <h3>Your email is {getemail()}</h3>
         <h3>Your Id is {this.props.userDetails.id}</h3>
         {this.getFacebookButton()} <br/>
         {this.getGoogleButton()}
+        <button onClick={this.deleteAccount}> Delete account </button>
       </div>
     );
   }
